@@ -1,61 +1,48 @@
 // Assignment code here
-var lowerCase = Math.random().toString(36).slice(-8);
-var upperCase = lowerCase.toUpperCase;
-var specialChar = ["!", "#", "$", "%", "&", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?"];
-var numberSet = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 var generatePassword = function () {
 
   var lengthPass = window.prompt("Input number of password length between 8 and 128 characters");
-   var passwordLength =[lengthPass];
-   var passLength = "";
-  if (!passwordLength >= 8 && !passwordLength <= 128) {
-    return;
-  }
+
+  if (lengthPass >= 8 && lengthPass <= 128) {
+  };
     var upper = window.confirm("Would you like uppercase characters?");
-    if (upper) {
-      var index = Math.floor(Math.random() * upperCase.length);
-      var upperFinal = upperCase[index];
-    } else{
-      return;
-    }
 
     var lower = window.confirm("Would you like lowercase characters?");
-    if (lower) {
-      var index2 = Math.floor(Math.random() * lowerCase.length);
-      var lowerFinal = upperCase[index2];
-    } else{
-      return;
-    }
-
 
     var special = window.confirm("Would you like special characters?");
-    if (special) {
-      var index3 = Math.floor(Math.random() * specialChar.length);
-      var specialFinal = specialChar[index3];
-    } else{
-      return;
-    }
-  
-
-
+   
     var number = window.confirm("Would you like number characters?");
-    if (number) {
-      var index4 = Math.floor(Math.random() * numberSet.length);
-      var numberFinal = numberSet[index4];
-    }else{
-      return;
-    }
-  
-    for (var i =  0; i <= passwordLength; i++){
-      var passFinal = upperFinal.concat(lowerFinal, specialFinal, numberFinal);
-      passLength = passFinal;
-    }
+    
+   let characters = "";
+   let passWord = "";
+
+   if(number){
+    characters += "0123456789";
+   }
+
+   if (special){
+    characters += "!@#$%^&*()";
+   }
+
+   if (lower){
+    characters += "abcdefghijklmnopqrstuvwxyz";
+   }
+
+   if (upper){
+    characters += "ABCDEFGHIJKLMNOPQRSTUV";
+   }
+
+   for (let i = 0; i < lengthPass.length; i++){
+    passWord+= characters.charAt(Math.floor(Math.random()* characters.length));
+   }
+
+   return passWord;
+  };
 
 
 
 
-};
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -74,6 +61,6 @@ generateBtn.addEventListener("click", writePassword);
 if (writePassword){
   generatePassword();
   window.alert("Your password is: " + generatePassword);
-}
+};
 
 

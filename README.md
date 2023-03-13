@@ -11,7 +11,7 @@ N/A
 ## Usage
 
 Password Genertor will generate a random password depending on the selected criteria. To select a certain criteria click "OK" to include the criteria in the password. 
-![alt text](./)
+![alt text](./images/initial.png)
 
 ## Credits
 
