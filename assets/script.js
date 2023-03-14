@@ -4,8 +4,7 @@ var generatePassword = function () {
 
   var lengthPass = window.prompt("Input number of password length between 8 and 128 characters");
 
-  if (lengthPass >= 8 && lengthPass <= 128) {
-  };
+  if (lengthPass >= 8 && lengthPass <= 128){
     var upper = window.confirm("Would you like uppercase characters?");
 
     var lower = window.confirm("Would you like lowercase characters?");
@@ -15,28 +14,28 @@ var generatePassword = function () {
     var number = window.confirm("Would you like number characters?");
     
    let characters = "";
-   let passWord = "";
+   var passWord = "";
 
    if(number){
-    characters += "0123456789";
+    characters += ["0","1","2","3","4", "5", "6", "7", "8", "9"];
    }
 
    if (special){
-    characters += "!@#$%^&*()";
+    characters += ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
    }
 
    if (lower){
-    characters += "abcdefghijklmnopqrstuvwxyz";
+    characters += ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
    }
 
    if (upper){
-    characters += "ABCDEFGHIJKLMNOPQRSTUV";
+    characters += ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V"];
    }
 
    for (let i = 0; i < lengthPass.length; i++){
     passWord+= characters.charAt(Math.floor(Math.random()* characters.length));
    }
-
+  };
    return passWord;
   };
 
