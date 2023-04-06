@@ -31,8 +31,8 @@ var generatePassword = function () {
    if (upper){
     characters += ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U","V"];
    }
-
-   for (let i = 0; i < lengthPass.length; i++){
+//I had lengthPass.length, removed the .lenght because it was running only one time
+   for (let i = 0; i < lengthPass; i++){
     passWord+= characters.charAt(Math.floor(Math.random()* characters.length));
    }
   };
